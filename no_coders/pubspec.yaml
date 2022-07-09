@@ -36,6 +36,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.5+3
   tflite_flutter: ^0.9.0
+  tflite_flutter_helper:
+    git:
+      url: https://github.com/filofan1/tflite_flutter_helper.git
+      ref: 783f15e5a87126159147d8ea30b98eea9207ac70
+  get: ^4.6.5
+  tflite_maven:
+    git:
+      url: https://github.com/NavidHosseini/tflite.git
+      ref: master
 
 dev_dependencies:
   flutter_test:
@@ -61,7 +70,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/assets/test_model.tflite
+    - assets/test_model.tflite
+    - assets/mobilenet_v1_1.0_224.tflite
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

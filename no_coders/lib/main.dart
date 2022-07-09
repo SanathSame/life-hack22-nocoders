@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:no_coders/home_page.dart';
+import 'package:no_coders/leaderboard.dart';
 import 'package:no_coders/login_page.dart';
+import 'package:no_coders/profile.dart';
+import 'package:no_coders/scan_page.dart';
 import 'intro_page.dart';
 
-void main() {
+Future<void> main() async {
+  await Firebase.initialiseApp();
   runApp(const MyApp());
 }
 
@@ -22,6 +26,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/intro': (context) => const IntroPage(),
         '/login': (context) => const Login(),
+        '/profile': (context) => ProfileScreen(),
+        '/leaderboard': (context) => LeaderboardScreen(),
+        '/scan': (context) => const ScanPage(),
       },
     );
   }

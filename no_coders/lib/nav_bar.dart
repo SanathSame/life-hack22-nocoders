@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class BasicBottomNavBar extends StatefulWidget {
   const BasicBottomNavBar({Key? key}) : super(key: key);
 
@@ -9,23 +8,18 @@ class BasicBottomNavBar extends StatefulWidget {
 }
 
 class _BasicBottomNavBarState extends State<BasicBottomNavBar> {
-  static int _selectedIndex = 1;
+  static int _selectedIndex = 2;
 
-  //TODO: change to profile page
-  static String _profileScreen = UserProfileUI.id;
-  static String _scanScreen = RecommendationScreen.id;
-  static String _leaderboard = ScanPage.id;
-
-  static List<String> _pages = <String>[
-    _leaderboard,
-    _scanScreen,
-    _profileScreen
+  static final List<String> _pages = <String>[
+    '/leaderboard',
+    '/scan',
+    '/profile'
   ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      Navigator.pushNamed(context, _pages[_selectedIndex]);
+      Navigator.pushNamed(context, _pages[index]);
     });
   }
 
@@ -34,7 +28,7 @@ class _BasicBottomNavBarState extends State<BasicBottomNavBar> {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.),
+          icon: Icon(Icons.leaderboard),
           label: 'Leaderboard',
         ),
         BottomNavigationBarItem(
@@ -42,7 +36,7 @@ class _BasicBottomNavBarState extends State<BasicBottomNavBar> {
           label: 'Scan',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.user),
+          icon: Icon(Icons.verified_user_outlined),
           label: 'Profile',
         ),
       ],

@@ -1,15 +1,29 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:no_coders/classifier.dart';
-import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
+import 'package:no_coders/constants/constants.dart';
+import 'package:no_coders/main_screen.dart';
 
 class ImageController extends GetxController {
-  File? imageFile;
-  Image? image;
+  String model = ssd;
+  File? image;
 
-  Category? category;
+  double? imageWidth;
+  double? imageHeight;
 
-  bool busy = false;
+  bool isLoading = false;
+
+  List? recognitions;
+
+  late String itemName;
+  late double confidenceLevel;
+
+  void renderImage() {
+    recognitions!.sort((a, b) => (a as Map).compareTo(b));
+    print(recognitions!);
+    itemName = recognitions![0]["detectedClass"];
+    confidenceLevel = recognitions![0]["confidenceInClass"] * 100;
+    print(confidenceLevel);
+    update();
+  }
 }

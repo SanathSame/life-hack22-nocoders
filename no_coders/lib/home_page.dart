@@ -22,10 +22,10 @@ class _HomePageState extends State<HomePage> {
 
   String _model = ssd;
 
-  double _imageWidth;
-  double _imageHeight;
+  late double _imageWidth;
+  late double _imageHeight;
 
-  List _recognitions;
+  late List _recognitions;
 
   @override
   void initState() {

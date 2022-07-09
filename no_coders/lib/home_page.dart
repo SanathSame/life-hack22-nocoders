@@ -198,55 +198,45 @@
 //   }
 // }
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:image/image.dart' as img;
+import 'package:no_coders/constants/constants.dart';
+import 'package:no_coders/image_controller.dart';
 import 'package:tflite_maven/tflite.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-const String ssd = "SSD MobileNet";
-const String yolo = "Tiny YOLOv2";
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TfliteHome(),
+      home: ScanPage(),
     );
   }
 }
 
-class TfliteHome extends StatefulWidget {
+class ScanPage extends StatefulWidget {
   @override
-  _TfliteHomeState createState() => _TfliteHomeState();
+  _ScanPageState createState() => _ScanPageState();
 }
 
-class _TfliteHomeState extends State<TfliteHome> {
-  String _model = ssd;
-  File? _image;
-
-  double? _imageWidth;
-  double? _imageHeight;
-  bool _busy = false;
-
-  List? _recognitions;
+class _ScanPageState extends State<ScanPage> {
+  ImageController imageCon = Get.find<ImageController>();
 
   @override
   void initState() {
     super.initState();
-    _busy = true;
+    imageCon.isLoading = true;
+    imageCon.update();
 
     loadModel().then((val) {
-      setState(() {
-        _busy = false;
-      });
+      imageCon.isLoading = false;
+      imageCon.update();
     });
   }
 
@@ -254,7 +244,12 @@ class _TfliteHomeState extends State<TfliteHome> {
     Tflite.close();
     try {
       String? res;
-      if (_model == yolo) {
+
+      // res = await Tflite.loadModel(
+      //   model: "assets/recyclables.tflite",
+      //   labels: "assets/recyclables.txt",
+      // );
+      if (imageCon.model == yolo) {
         res = await Tflite.loadModel(
           model: "assets/yolov2_tiny.tflite",
           labels: "assets/yolov2_tiny.txt",
@@ -271,15 +266,14 @@ class _TfliteHomeState extends State<TfliteHome> {
     }
   }
 
-  selectFromImagePicker() async {
+  selectFromImagePicker({required ImageSource source}) async {
     final ImagePicker _picker = ImagePicker();
-    final pickedImage = await _picker.pickImage(source: ImageSource.gallery);
+    final pickedImage = await _picker.pickImage(source: source);
     if (pickedImage == null) {
       return;
     } else {
-      setState(() {
-        _busy = true;
-      });
+      imageCon.isLoading = true;
+      imageCon.update();
       predictImage(File(pickedImage.path));
     }
   }
@@ -287,7 +281,7 @@ class _TfliteHomeState extends State<TfliteHome> {
   predictImage(File image) async {
     if (image == null) return;
 
-    if (_model == yolo) {
+    if (imageCon.model == yolo) {
       await yolov2Tiny(image);
     } else {
       await ssdMobileNet(image);
@@ -297,51 +291,49 @@ class _TfliteHomeState extends State<TfliteHome> {
         .resolve(ImageConfiguration())
         .addListener((ImageStreamListener((ImageInfo info, bool _) {
           setState(() {
-            _imageWidth = info.image.width.toDouble();
-            _imageHeight = info.image.height.toDouble();
+            imageCon.imageWidth = info.image.width.toDouble();
+            imageCon.imageHeight = info.image.height.toDouble();
           });
         })));
 
-    setState(() {
-      print(image);
-      _image = image;
-      _busy = false;
-    });
+    print(image);
+    imageCon.image = image;
+    imageCon.isLoading = false;
+    imageCon.update();
   }
 
   yolov2Tiny(File image) async {
     var recognitions = await Tflite.detectObjectOnImage(
         path: image.path,
         model: "YOLO",
-        threshold: 0.3,
+        threshold: 0.1,
         imageMean: 0.0,
         imageStd: 255.0,
         numResultsPerClass: 1);
 
-    setState(() {
-      _recognitions = recognitions!;
-    });
+    imageCon.recognitions = recognitions!;
+    imageCon.update();
   }
 
   ssdMobileNet(File image) async {
     var recognitions = await Tflite.detectObjectOnImage(
         path: image.path, numResultsPerClass: 1);
 
-    setState(() {
-      _recognitions = recognitions!;
-    });
+    imageCon.recognitions = recognitions!;
+    imageCon.update();
   }
 
   List<Widget> renderBoxes(Size screen) {
-    if (_recognitions == null) return [];
-    if (_imageWidth == null || _imageHeight == null) return [];
+    if (imageCon.recognitions == null) return [];
+    if (imageCon.imageWidth == null || imageCon.imageHeight == null) return [];
 
     double factorX = screen.width;
-    double factorY = _imageHeight! / _imageHeight! * screen.width;
+    double factorY =
+        imageCon.imageHeight! / imageCon.imageHeight! * screen.width;
 
     Color blue = Colors.red;
 
-    return _recognitions!.map((re) {
+    return imageCon.recognitions!.map((re) {
       return Positioned(
         left: re["rect"]["x"] * factorX,
         top: re["rect"]["y"] * factorY,
@@ -376,28 +368,44 @@ class _TfliteHomeState extends State<TfliteHome> {
       top: 0.0,
       left: 0.0,
       width: size.width,
-      child: _image == null ? Text("No Image Selected") : Image.file(_image!),
+      child: imageCon.image == null
+          ? Text("No Image Selected")
+          : Image.file(imageCon.image!),
     ));
 
     stackChildren.addAll(renderBoxes(size));
 
-    if (_busy) {
-      stackChildren.add(Center(
-        child: CircularProgressIndicator(),
-      ));
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("TFLite Demo"),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.image),
-        tooltip: "Pick Image from gallery",
-        onPressed: selectFromImagePicker,
-      ),
-      body: Stack(
-        children: stackChildren,
+    return SafeArea(
+      child: Scaffold(
+        body: GetBuilder<ImageController>(
+          builder: (imageCon) {
+            return imageCon.isLoading
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Stack(
+                    children: stackChildren,
+                  );
+          },
+        ),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(bottom: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    selectFromImagePicker(source: ImageSource.gallery);
+                  },
+                  child: Text("From Gallery")),
+              ElevatedButton(
+                  onPressed: () {
+                    selectFromImagePicker(source: ImageSource.camera);
+                  },
+                  child: Text("From Camera"))
+            ],
+          ),
+        ),
       ),
     );
   }

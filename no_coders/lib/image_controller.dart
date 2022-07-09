@@ -11,7 +11,7 @@ class ImageController extends GetxController {
   double? imageWidth;
   double? imageHeight;
 
-  // bool isLoading = false;
+  bool isLoading = false;
 
   List? recognitions;
 

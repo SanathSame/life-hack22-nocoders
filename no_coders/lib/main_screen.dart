@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,7 +7,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:no_coders/constants/constants.dart';
-import 'package:no_coders/home_page.dart';
+
 import 'package:no_coders/image_controller.dart';
 import 'package:no_coders/result_page.dart';
 import 'package:tflite_maven/tflite.dart';
@@ -35,99 +34,113 @@ class _MainScreenState extends State<MainScreen> {
       child: Scaffold(
         backgroundColor: Color(0xFF454955),
         body: GetBuilder<ImageController>(builder: (imageCon) {
-          return Center(
-            child: NoImage(),
-          );
-        }),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 30),
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    selectFromImagePicker(source: ImageSource.gallery);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF73937E),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Row(
-                    children: const [
-                      Icon(
-                        FeatherIcons.image,
-                        size: 16,
-                      ),
-                      Padding(
-                          padding: EdgeInsets.only(left: 3),
-                          child: Text(
-                            "Gallery",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontFamily: "Open Sans",
-                              letterSpacing: 0.5,
-                            ),
-                          )),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    selectFromImagePicker(source: ImageSource.camera);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF73937E),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Row(
-                    children: const [
-                      Icon(
-                        FeatherIcons.camera,
-                        size: 16,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 3),
-                        child: Text(
-                          "Camera",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: "Open Sans",
-                            letterSpacing: 0.5,
-                          ),
-                        ),
-                      )
-                    ],
+          return imageCon.isLoading
+              ? Center(
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
                   ),
                 )
-              ],
-            ),
-          ),
-        ),
+              : Center(
+                  child: NoImage(),
+                );
+        }),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: GetBuilder<ImageController>(builder: (imageCon) {
+          return imageCon.isLoading
+              ? SizedBox()
+              : Padding(
+                  padding: const EdgeInsets.only(bottom: 30),
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            selectFromImagePicker(source: ImageSource.gallery);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF73937E),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: Row(
+                            children: const [
+                              Icon(
+                                FeatherIcons.image,
+                                size: 16,
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: 3),
+                                  child: Text(
+                                    "Gallery",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontFamily: "Open Sans",
+                                      letterSpacing: 0.5,
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            selectFromImagePicker(source: ImageSource.camera);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF73937E),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: Row(
+                            children: const [
+                              Icon(
+                                FeatherIcons.camera,
+                                size: 16,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 3),
+                                child: Text(
+                                  "Camera",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: "Open Sans",
+                                    letterSpacing: 0.5,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+        }),
       ),
     );
   }
 
   selectFromImagePicker({required ImageSource source}) async {
+    imageCon.isLoading = true;
+    imageCon.update();
+
     final ImagePicker _picker = ImagePicker();
     final pickedImage = await _picker.pickImage(source: source);
     if (pickedImage == null) {
       return;
     } else {
-      // imageCon.isLoading = true;
-      // imageCon.update();
       await predictImage(File(pickedImage.path));
       imageCon.renderImage();
       Get.to(() => ResultPage());
     }
+
+    imageCon.isLoading = false;
+    imageCon.update();
   }
 
   yolov2Tiny(File image) async {
@@ -159,16 +172,6 @@ class _MainScreenState extends State<MainScreen> {
     } else {
       await ssdMobileNet(image);
     }
-
-    // FileImage(image).resolve(ImageConfiguration()).addListener(
-    //       (ImageStreamListener((ImageInfo info, bool _) {
-    //         setState(() {
-    //           imageCon.imageWidth = info.image.width.toDouble();
-    //           imageCon.imageHeight = info.image.height.toDouble();
-    //         });
-    //       })),
-    //     );
-
     print(image);
     imageCon.image = image;
   }

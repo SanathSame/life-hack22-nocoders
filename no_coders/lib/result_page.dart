@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:no_coders/image_controller.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:no_coders/extensions/extensions.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -44,7 +42,7 @@ class _ResultPageState extends State<ResultPage> {
                     ),
                   ),
                   Text(
-                    imageCon.itemName,
+                    imageCon.itemName.capitalise(),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 26,
@@ -89,7 +87,9 @@ class _ResultPageState extends State<ResultPage> {
                   height: 320,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: FileImage(imageCon.image!), fit: BoxFit.cover),
+                      image: FileImage(imageCon.image!),
+                      fit: BoxFit.cover,
+                    ),
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                   ),

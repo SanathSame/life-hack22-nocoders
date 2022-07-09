@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.no_coders">
+    package="com.no_coders">
    <application
         android:label="no_coders"
         android:name="${applicationName}"

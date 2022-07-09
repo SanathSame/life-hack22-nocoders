@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:no_coders/home_page.dart';
 import 'package:no_coders/leaderboard.dart';
 import 'package:no_coders/login_page.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'NoCoders',
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:no_coders/login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,12 +27,11 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, '/intro');
                 },
                 style: ElevatedButton.styleFrom(
-    primary: Colors.green, // Background color
-  ),
+                  primary: Colors.green, // Background color
+                ),
                 child: const Text('Get started')),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-    primary: Colors.green), 
+                style: ElevatedButton.styleFrom(primary: Colors.green),
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
                 },

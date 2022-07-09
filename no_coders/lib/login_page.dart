@@ -72,7 +72,6 @@ class _LoginState extends State<Login> {
                         SizedBox(
                           height: Dimensions.length20, //100
                         ),
-
                         // Email TextInputBox
                         TextInputBox(
                           height: Dimensions.length40, //40

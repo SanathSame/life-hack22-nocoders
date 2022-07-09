@@ -13,20 +13,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(child: Text("No Coders")),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Row(children: [
-        ElevatedButton(
-            onPressed: () {
-              selectFromImagePicker();
-            },
-            child: Text("From gallery"))
-      ]),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                selectFromGallery();
+              },
+              child: Text("From gallery")),
+          ElevatedButton(
+              onPressed: () {
+                selectFromCamera();
+              },
+              child: Text("From camera"))
+        ],
+      ),
     );
   }
 }
 
-void selectFromImagePicker() async {
+void selectFromGallery() async {
   final ImagePicker _picker = ImagePicker();
 
   await _picker.pickImage(source: ImageSource.gallery);
+}
+
+void selectFromCamera() async {
+  final ImagePicker _picker = ImagePicker();
+
+  await _picker.pickImage(source: ImageSource.camera);
 }

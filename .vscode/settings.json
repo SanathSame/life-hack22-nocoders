@@ -1,5 +1,3 @@
 {
-    "yaml.schemas": {
-        "https://json.schemastore.org/pubspec.json": "file:///c%3A/Users/sanat/LifeHack/life-hack22-nocoders/no_coders/pubspec.yaml"
-    }
+    "C_Cpp.errorSquiggles": "Enabled"
 }

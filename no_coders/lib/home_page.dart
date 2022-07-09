@@ -28,10 +28,15 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/intro');
                 },
+                style: ElevatedButton.styleFrom(
+    primary: Colors.green, // Background color
+  ),
                 child: const Text('Get started')),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+    primary: Colors.green), 
                 onPressed: () {
-                  Get.to(const Login());
+                  Navigator.pushNamed(context, '/login');
                 },
                 child: const Text('Login')),
           ],

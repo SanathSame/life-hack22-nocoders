@@ -31,7 +31,6 @@ class _IntroPageState extends State<IntroPage> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
           backgroundColor: Colors.white,
@@ -40,9 +39,9 @@ class _IntroPageState extends State<IntroPage> {
               child: PageView(
                 controller: _introController,
                 children: [
-                  IntroCardOne(theme: theme),
-                  IntroCardTwo(theme: theme),
-                  IntroCardThree(theme: theme),
+                  IntroCardOne(),
+                  IntroCardTwo(),
+                  IntroCardThree(),
                 ],
               ),
             ),
@@ -72,8 +71,7 @@ class _IntroPageState extends State<IntroPage> {
                     onTap: () => Get.to(() => const Login()),
                     child: Text(
                       "Skip",
-                      style: theme.textTheme.bodyText1?.copyWith(
-                          color: AppColours.greyTextColour, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 12),
                     )),
               ),
             )
@@ -83,28 +81,24 @@ class _IntroPageState extends State<IntroPage> {
 }
 
 class IntroCardOne extends StatelessWidget {
-  const IntroCardOne({
-    Key? key,
-    required this.theme,
-  }) : super(key: key);
-
-  final ThemeData theme;
+  
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Center
+    (
       child: SizedBox(
           height: 400,
           child: Column(
             children: [
               SizedBox(
-                  height: 220, child: Image.asset("lib/assets/recycle.jfif")),
+                  height: 150, child: Image.asset('lib/assets/people_recycle.png')),
               const SizedBox(
                 height: 10,
               ),
               Text(
                 "Easily Log Routines",
-                style: theme.textTheme.headline2,
+                style: TextStyle(color: Colors.black, fontSize: 12),
               ),
               const SizedBox(
                 height: 15,
@@ -113,23 +107,14 @@ class IntroCardOne extends StatelessWidget {
                 width: 280,
                 child: Text(
                     "With Evolve's simple and specially designed logging flow, logging routines accurately becomes less of a chore.",
-                    style: theme.textTheme.subtitle1
-                        ?.copyWith(color: AppColours.greyTextColour),
+                    style: TextStyle(color: Colors.black, fontSize: 12),
                     textAlign: TextAlign.center),
-              ),
-            ],
-          )),
-    );
+              ),],),),);
   }
 }
 
 class IntroCardTwo extends StatelessWidget {
-  const IntroCardTwo({
-    Key? key,
-    required this.theme,
-  }) : super(key: key);
 
-  final ThemeData theme;
 
   @override
   Widget build(BuildContext context) {
@@ -141,13 +126,13 @@ class IntroCardTwo extends StatelessWidget {
               children: [
                 SizedBox(
                     height: 220,
-                    child: Image.asset("lib/assets/Volunteering-bro.svg")),
+                    child: Image.asset('lib/assets/recycling_logo.jpg')),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "View your progress",
-                  style: theme.textTheme.headline2,
+                  style: TextStyle(color: Colors.black, fontSize: 12),
                 ),
                 const SizedBox(
                   height: 15,
@@ -156,8 +141,7 @@ class IntroCardTwo extends StatelessWidget {
                   width: 280,
                   child: Text(
                       "Detailed analytics and visual displays lets you view and understand your progress at a glance.",
-                      style: theme.textTheme.subtitle1
-                          ?.copyWith(color: AppColours.greyTextColour),
+                      style: TextStyle(color: Colors.black, fontSize: 12),
                       textAlign: TextAlign.center),
                 ),
               ],
@@ -168,13 +152,7 @@ class IntroCardTwo extends StatelessWidget {
 }
 
 class IntroCardThree extends StatelessWidget {
-  const IntroCardThree({
-    Key? key,
-    required this.theme,
-  }) : super(key: key);
-
-  final ThemeData theme;
-
+  
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -183,24 +161,23 @@ class IntroCardThree extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                  height: 220,
-                  child: Image.asset("lib/assets/Volunteering-Bro.svg")),
+                  height: 150,
+                  child: Image.asset('lib/assets/recycling_logo.jpg')),
               const SizedBox(
                 height: 10,
               ),
               Text(
                 "Get personalised insights",
-                style: theme.textTheme.headline2,
+                style: TextStyle(color: Colors.black, fontSize: 12),
               ),
               const SizedBox(
                 height: 15,
               ),
               SizedBox(
-                width: 280,
+                width: 150,
                 child: Text(
                     "Evolve's algorithm makes predictions about your overall well-being based on your lifestyle patterns and provides you with personalised prompts.",
-                    style: theme.textTheme.subtitle1
-                        ?.copyWith(color: AppColours.greyTextColour),
+                    style: TextStyle(color: Colors.black, fontSize: 12),
                     textAlign: TextAlign.center),
               ),
               const SizedBox(
@@ -208,18 +185,16 @@ class IntroCardThree extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Get.to(() => const Login());
+                  Navigator.pushNamed(context, '/login');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: AppColours.componentColour,
+                  primary: Colors.green,
                 ),
                 child: Text(
-                  "Get Started",
-                  style: theme.textTheme.bodyText2?.copyWith(
-                    color: AppColours.secondaryTextColour,
+                  "Scan!",
+                  style: TextStyle(color: Colors.black, fontSize: 12),
                   ),
                 ),
-              ),
             ],
           )),
     );

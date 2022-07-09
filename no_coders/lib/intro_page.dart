@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:no_coders/leaderboard.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'constants/app_colours.dart';
-import 'login_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -68,8 +68,8 @@ class _IntroPageState extends State<IntroPage> {
                 duration: const Duration(milliseconds: 100),
                 opacity: (_currentPage.round() < 2) ? 1 : 0,
                 child: GestureDetector(
-                    onTap: () => Get.to(() => const Login()),
-                    child: Text(
+                    onTap: () => Get.to(() => LeaderboardScreen()),
+                    child: const Text(
                       "Skip",
                       style: TextStyle(color: Colors.black, fontSize: 12),
                     )),
@@ -81,41 +81,41 @@ class _IntroPageState extends State<IntroPage> {
 }
 
 class IntroCardOne extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
-    return Center
-    (
+    return Center(
       child: SizedBox(
-          height: 400,
-          child: Column(
-            children: [
-              SizedBox(
-                  height: 150, child: Image.asset('lib/assets/people_recycle.png')),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Easily Log Routines",
-                style: TextStyle(color: Colors.black, fontSize: 12),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                width: 280,
-                child: Text(
-                    "With Evolve's simple and specially designed logging flow, logging routines accurately becomes less of a chore.",
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                    textAlign: TextAlign.center),
-              ),],),),);
+        height: 400,
+        child: Column(
+          children: [
+            SizedBox(
+                height: 150,
+                child: Image.asset('lib/assets/people_recycle.png')),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              "Easily Log Routines",
+              style: TextStyle(color: Colors.black, fontSize: 12),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const SizedBox(
+              width: 280,
+              child: Text(
+                  "With Evolve's simple and specially designed logging flow, logging routines accurately becomes less of a chore.",
+                  style: TextStyle(color: Colors.black, fontSize: 12),
+                  textAlign: TextAlign.center),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
 class IntroCardTwo extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -130,14 +130,14 @@ class IntroCardTwo extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   "View your progress",
                   style: TextStyle(color: Colors.black, fontSize: 12),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 280,
                   child: Text(
                       "Detailed analytics and visual displays lets you view and understand your progress at a glance.",
@@ -152,7 +152,6 @@ class IntroCardTwo extends StatelessWidget {
 }
 
 class IntroCardThree extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -166,14 +165,14 @@ class IntroCardThree extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Get personalised insights",
                 style: TextStyle(color: Colors.black, fontSize: 12),
               ),
               const SizedBox(
                 height: 15,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 150,
                 child: Text(
                     "Evolve's algorithm makes predictions about your overall well-being based on your lifestyle patterns and provides you with personalised prompts.",
@@ -185,16 +184,16 @@ class IntroCardThree extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/login');
+                  Navigator.pushNamed(context, '/leaderboard');
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.green,
                 ),
-                child: Text(
+                child: const Text(
                   "Scan!",
                   style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
                 ),
+              ),
             ],
           )),
     );

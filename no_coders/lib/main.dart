@@ -7,7 +7,6 @@ import 'package:no_coders/scan_page.dart';
 import 'intro_page.dart';
 
 Future<void> main() async {
-  await Firebase.initialiseApp();
   runApp(const MyApp());
 }
 

@@ -4,30 +4,36 @@ import 'package:no_coders/leaderboard.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'constants/app_colours.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+// import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class IntroPage extends StatefulWidget {
-  const IntroPage({super.key});
+// import 'constants/app_colours.dart';
+// import 'login_page.dart';
 
-  @override
-  State<IntroPage> createState() => _IntroPageState();
-}
+// class IntroPage extends StatefulWidget {
+//   const IntroPage({super.key});
 
-class _IntroPageState extends State<IntroPage> {
-  final PageController _introController =
-      PageController(viewportFraction: 0.96, initialPage: 0);
+//   @override
+//   State<IntroPage> createState() => _IntroPageState();
+// }
 
-  double _currentPage = 0;
+// class _IntroPageState extends State<IntroPage> {
+//   final PageController _introController =
+//       PageController(viewportFraction: 0.96, initialPage: 0);
 
-  @override
-  void initState() {
-    super.initState();
-    _currentPage = 0;
-    _introController.addListener(() {
-      setState(() {
-        _currentPage = _introController.page!;
-      });
-    });
-  }
+//   double _currentPage = 0;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _currentPage = 0;
+//     _introController.addListener(() {
+//       setState(() {
+//         _currentPage = _introController.page!;
+//       });
+//     });
+//   }
 
   @override
   Widget build(BuildContext context) {

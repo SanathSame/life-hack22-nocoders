@@ -5,6 +5,9 @@ import 'package:no_coders/leaderboard.dart';
 import 'package:no_coders/login_page.dart';
 import 'package:no_coders/profile.dart';
 import 'package:no_coders/scan_page.dart';
+import 'package:no_coders/reward_screen.dart';
+import 'package:no_coders/option_menu.dart';
+
 import 'intro_page.dart';
 
 Future<void> main() async {
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/intro': (context) => const IntroPage(),
         '/login': (context) => const Login(),
         '/profile': (context) => ProfileScreen(),
-        '/leaderboard': (context) => LeaderboardScreen(),
+        '/leaderboard': (context) => LeaderBoard(),
         '/scan': (context) => const ScanPage(),
       },
     );

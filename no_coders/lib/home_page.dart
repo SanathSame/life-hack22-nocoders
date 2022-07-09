@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:no_coders/login_page.dart';
+import 'package:no_coders/screen_three.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,7 +31,11 @@ class HomePage extends StatelessWidget {
                 child: const Text('Get started')),
             ElevatedButton(
                 onPressed: () {
-                  Get.to(const Login());
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const ScreenOne()));
+                  Get.to(() => const ScreenOne());
                 },
                 child: const Text('Login')),
           ],

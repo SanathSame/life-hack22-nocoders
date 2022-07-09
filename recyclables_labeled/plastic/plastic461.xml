@@ -1,0 +1,26 @@
+<annotation>
+	<folder>plastic</folder>
+	<filename>plastic461.jpg</filename>
+	<path>/Users/nicholas/Documents/SoftwareProjects/NoCoders/life-hack22-nocoders/recyclables_dataset/plastic/plastic461.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>384</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plastic</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>65</xmin>
+			<ymin>76</ymin>
+			<xmax>354</xmax>
+			<ymax>370</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>metal</folder>
+	<filename>metal369.jpg</filename>
+	<path>/Users/nicholas/Documents/SoftwareProjects/NoCoders/life-hack22-nocoders/recyclables_dataset/metal/metal369.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>384</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>metal</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>125</xmin>
+			<ymin>74</ymin>
+			<xmax>317</xmax>
+			<ymax>272</ymax>
+		</bndbox>
+	</object>
+</annotation>

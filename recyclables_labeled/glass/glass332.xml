@@ -1,0 +1,26 @@
+<annotation>
+	<folder>glass</folder>
+	<filename>glass332.jpg</filename>
+	<path>/Users/nicholas/Documents/SoftwareProjects/NoCoders/life-hack22-nocoders/recyclables_dataset/glass/glass332.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>384</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>glass</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>39</xmin>
+			<ymin>28</ymin>
+			<xmax>463</xmax>
+			<ymax>316</ymax>
+		</bndbox>
+	</object>
+</annotation>

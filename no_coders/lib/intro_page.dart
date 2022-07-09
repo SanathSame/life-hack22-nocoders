@@ -1,9 +1,9 @@
-import 'package:evolve/constants/colour_scheme.dart';
-import 'package:evolve/pages/onboarding/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:transparent_image/transparent_image.dart';
+
+import 'constants/app_colours.dart';
+import 'login_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -98,11 +98,7 @@ class IntroCardOne extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                  height: 220,
-                  child: FadeInImage(
-                      placeholder: MemoryImage(kTransparentImage),
-                      image:
-                          const AssetImage("lib/assets/images/checklist.png"))),
+                  height: 220, child: Image.asset("lib/assets/recycle.jfif")),
               const SizedBox(
                 height: 10,
               ),
@@ -140,33 +136,32 @@ class IntroCardTwo extends StatelessWidget {
     return Center(
       child: SizedBox(
           height: 400,
-          child: Column(
-            children: [
-              SizedBox(
-                  height: 220,
-                  child: FadeInImage(
-                      placeholder: MemoryImage(kTransparentImage),
-                      image: const AssetImage(
-                          "lib/assets/images/statistics.png"))),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                "View your progress",
-                style: theme.textTheme.headline2,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              SizedBox(
-                width: 280,
-                child: Text(
-                    "Detailed analytics and visual displays lets you view and understand your progress at a glance.",
-                    style: theme.textTheme.subtitle1
-                        ?.copyWith(color: AppColours.greyTextColour),
-                    textAlign: TextAlign.center),
-              ),
-            ],
+          child: SafeArea(
+            child: Column(
+              children: [
+                SizedBox(
+                    height: 220,
+                    child: Image.asset("lib/assets/Volunteering-bro.svg")),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "View your progress",
+                  style: theme.textTheme.headline2,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                SizedBox(
+                  width: 280,
+                  child: Text(
+                      "Detailed analytics and visual displays lets you view and understand your progress at a glance.",
+                      style: theme.textTheme.subtitle1
+                          ?.copyWith(color: AppColours.greyTextColour),
+                      textAlign: TextAlign.center),
+                ),
+              ],
+            ),
           )),
     );
   }
@@ -189,10 +184,7 @@ class IntroCardThree extends StatelessWidget {
             children: [
               SizedBox(
                   height: 220,
-                  child: FadeInImage(
-                      placeholder: MemoryImage(kTransparentImage),
-                      image:
-                          const AssetImage("lib/assets/images/analytics.png"))),
+                  child: Image.asset("lib/assets/Volunteering-Bro.svg")),
               const SizedBox(
                 height: 10,
               ),

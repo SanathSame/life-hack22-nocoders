@@ -1,46 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+import 'package:no_coders/login_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: const Center(child: Text("No Coders")),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                selectFromGallery();
-              },
-              child: Text("From gallery")),
-          ElevatedButton(
-              onPressed: () {
-                selectFromCamera();
-              },
-              child: Text("From camera"))
-        ],
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: height * 0.3),
+            Lottie.asset('lib/assets/recycle_lottie.json'),
+            SizedBox(height: height * 0.01),
+            const Text('Recyclops',
+                style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40.0,
+                    fontFamily: 'Serif')),
+            const SizedBox(height: 20),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/intro');
+                },
+                child: const Text('Get started')),
+            ElevatedButton(
+                onPressed: () {
+                  Get.to(const Login());
+                },
+                child: const Text('Login')),
+          ],
+        ),
       ),
     );
   }
-}
-
-void selectFromGallery() async {
-  final ImagePicker _picker = ImagePicker();
-
-  await _picker.pickImage(source: ImageSource.gallery);
-}
-
-void selectFromCamera() async {
-  final ImagePicker _picker = ImagePicker();
-
-  await _picker.pickImage(source: ImageSource.camera);
 }

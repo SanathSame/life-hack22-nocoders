@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:no_coders/home_page.dart';
 
+import 'intro_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,6 +19,9 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
+      routes: {
+        '/intro': (context) => const IntroPage(),
+      },
     );
   }
 }

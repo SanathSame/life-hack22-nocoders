@@ -1,16 +1,7 @@
-import 'package:date_picker_timeline/extra/dimen.dart';
-import 'package:evolve/constants/colour_scheme.dart';
-import 'package:evolve/constants/dimensions.dart';
-import 'package:evolve/controller/auth_controller.dart';
-import 'package:evolve/pages/onboarding/views/login.dart';
-import 'package:evolve/pages/onboarding/views/onboarding_questionaire/onboarding_initial_page.dart';
-import 'package:evolve/pages/onboarding/views/onboarding_questionaire/user_name.dart';
-import 'package:evolve/widgets/textinputbox.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import "package:flutter_feather_icons/flutter_feather_icons.dart";
 import 'package:get/get.dart';
+
+import 'constants/app_colours.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -73,27 +64,25 @@ class _SignUpState extends State<SignUp> {
 
                         // Email TextInputBox
                         TextInputBox(
-                          height: Dimensions.length40, //40
-                          width: Dimensions.screenWidth,
-                          hint: "Email Address",
-                          icon: FeatherIcons.mail,
-                          controller: emailController,
-                          function: () {}
-                        ),
+                            height: Dimensions.length40, //40
+                            width: Dimensions.screenWidth,
+                            hint: "Email Address",
+                            icon: FeatherIcons.mail,
+                            controller: emailController,
+                            function: () {}),
                         SizedBox(
                           height: Dimensions.length15, //15
                         ),
 
                         // Password TextInputBox
                         TextInputBox(
-                          height: Dimensions.length40, //40
-                          width: Dimensions.screenWidth,
-                          controller: passwordController,
-                          hint: "Password",
-                          icon: FeatherIcons.lock,
-                          hidden: true,
-                          function: () {}
-                        ),
+                            height: Dimensions.length40, //40
+                            width: Dimensions.screenWidth,
+                            controller: passwordController,
+                            hint: "Password",
+                            icon: FeatherIcons.lock,
+                            hidden: true,
+                            function: () {}),
 
                         SizedBox(
                           height: Dimensions.length15, //15
@@ -117,7 +106,7 @@ class _SignUpState extends State<SignUp> {
                               Dimensions.screenHeight / 17,
                             ),
                           ),
-                          child: Container(
+                          child: SizedBox(
                             width: Dimensions.screenWidth,
                             child: Text(
                               "Sign Up",
@@ -150,7 +139,7 @@ class _SignUpState extends State<SignUp> {
                               SizedBox(
                                 width: Dimensions.length10, //10
                               ),
-                              Text("or sign up with"),
+                              const Text("or sign up with"),
                               SizedBox(
                                 width: Dimensions.length10, //10
                               ),
@@ -177,7 +166,7 @@ class _SignUpState extends State<SignUp> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 45, //50
                                 height: 45, //50
                                 child: ElevatedButton(
@@ -203,7 +192,7 @@ class _SignUpState extends State<SignUp> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 width: 45, //50
                                 height: 45, //50
                                 child: ElevatedButton(
@@ -267,7 +256,7 @@ class _SignUpState extends State<SignUp> {
                           onTap: () {
                             Get.to(() => Login());
                           },
-                          child: Container(
+                          child: SizedBox(
                             width: Dimensions.screenWidth,
                             child: Text(
                               textAlign: TextAlign.center,

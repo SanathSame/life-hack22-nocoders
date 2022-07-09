@@ -7,6 +7,18 @@ import 'package:no_coders/text_input_box.dart';
 
 import 'AuthController.dart';
 import 'constants/app_colours.dart';
+import 'package:evolve/constants/colour_scheme.dart';
+import 'package:evolve/constants/dimensions.dart';
+import 'package:evolve/controller/auth_controller.dart';
+import 'package:evolve/pages/onboarding/views/reset_password.dart';
+import 'package:evolve/pages/onboarding/views/signup.dart';
+import 'package:evolve/widgets/textinputbox.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import "package:flutter_feather_icons/flutter_feather_icons.dart";
+import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);

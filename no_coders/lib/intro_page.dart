@@ -89,35 +89,31 @@ import 'constants/app_colours.dart';
 class IntroCardOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Center
+    (
       child: SizedBox(
-        height: 400,
-        child: Column(
-          children: [
-            SizedBox(
-                height: 150,
-                child: Image.asset('lib/assets/people_recycle.png')),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "Easily Log Routines",
-              style: TextStyle(color: Colors.black, fontSize: 12),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const SizedBox(
-              width: 280,
-              child: Text(
-                  "With Evolve's simple and specially designed logging flow, logging routines accurately becomes less of a chore.",
-                  style: TextStyle(color: Colors.black, fontSize: 12),
-                  textAlign: TextAlign.center),
-            ),
-          ],
-        ),
-      ),
-    );
+          height: 400,
+          child: Column(
+            children: [
+              SizedBox(
+                  height: 150, child: Image.asset('lib/assets/people_recycle.png')),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Easily Log Routines",
+                style: TextStyle(color: Colors.black, fontSize: 12),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                width: 280,
+                child: Text(
+                    "With Evolve's simple and specially designed logging flow, logging routines accurately becomes less of a chore.",
+                    style: TextStyle(color: Colors.black, fontSize: 12),
+                    textAlign: TextAlign.center),
+              ),],),),);
   }
 }
 
@@ -198,9 +194,8 @@ class IntroCardThree extends StatelessWidget {
                 child: const Text(
                   "Scan!",
                   style: TextStyle(color: Colors.black, fontSize: 12),
-                ),
-              ),
-            ],
+                ),)
+            ]
           )),
     );
   }

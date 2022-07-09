@@ -8,6 +8,7 @@ import 'package:no_coders/scan_page.dart';
 import 'package:no_coders/reward_screen.dart';
 import 'package:no_coders/option_menu.dart';
 
+import 'package:no_coders/login_page.dart';
 import 'intro_page.dart';
 
 Future<void> main() async {

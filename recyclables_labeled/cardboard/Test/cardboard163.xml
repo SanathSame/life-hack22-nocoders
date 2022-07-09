@@ -1,0 +1,26 @@
+<annotation>
+	<folder>cardboard</folder>
+	<filename>cardboard163.jpg</filename>
+	<path>/Users/nicholas/Documents/SoftwareProjects/NoCoders/life-hack22-nocoders/recyclables_dataset/cardboard/cardboard163.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>384</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cardboard</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>25</xmin>
+			<ymin>62</ymin>
+			<xmax>468</xmax>
+			<ymax>367</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:no_coders/nav_bar.dart';
 
-
 class LeaderBoard extends StatelessWidget {
   const LeaderBoard({Key? key}) : super(key: key);
 
@@ -9,52 +8,52 @@ class LeaderBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFF454955),
-        appBar: AppBar(
-          elevation: 0,
-          toolbarHeight: 115, // Set this height
-          flexibleSpace: Container(
-            color: Colors.white,
-            child: Column(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  child: Column(children: [
-                    const Text("Leaderboard",
-                        style: TextStyle(
-                          color: Color(0xFF454955),
-                          fontSize: 25,
-                          fontFamily: 'OpenSans',
-                          fontWeight: FontWeight.bold,
-                        )),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(Icons.diamond_rounded),
-                        Icon(Icons.person_outline_rounded),
-                        Icon(Icons.money)
-                      ],
-                    )
-                  ]),
-                ),
-              ],
+          backgroundColor: Color(0xFF454955),
+          appBar: AppBar(
+            elevation: 0,
+            toolbarHeight: 115, // Set this height
+            flexibleSpace: Container(
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 20),
+                    child: Column(children: [
+                      const Text("Leaderboard",
+                          style: TextStyle(
+                            color: Color(0xFF454955),
+                            fontSize: 25,
+                            fontFamily: 'OpenSans',
+                            fontWeight: FontWeight.bold,
+                          )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.diamond_rounded),
+                          Icon(Icons.person_outline_rounded),
+                          Icon(Icons.money)
+                        ],
+                      )
+                    ]),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        body: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: 5,
-            itemBuilder: ((context, index) => LeaderboardTile(
-                  image: "",
-                  name: "Tan Yu Qi",
-                  score: 600,
-                  rank: index + 1,
-                ))),
-      ),
+          body: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: 5,
+              itemBuilder: ((context, index) => LeaderboardTile(
+                    image: "",
+                    name: "Tan Yu Qi",
+                    score: 600,
+                    rank: index + 1,
+                  ))),
+          bottomNavigationBar: BasicBottomNavBar()),
     );
   }
 }
@@ -89,7 +88,7 @@ class LeaderboardTile extends StatelessWidget {
           Row(
             children: [
               Image.asset(
-                'lib/assets/avatar.png',
+                'assets/avatar.png',
                 height: 21,
               ),
               SizedBox(

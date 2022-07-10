@@ -11,13 +11,13 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: height * 0.3),
-            Lottie.asset('lib/assets/recycle_lottie.json'),
+            Lottie.asset('assets/recycle_lottie.json'),
             SizedBox(height: height * 0.01),
             const Text('Recyclops',
                 style: TextStyle(
-                    color: Colors.green,
+                    color: Color(0xFF73937E),
                     fontWeight: FontWeight.bold,
                     fontSize: 40.0,
                     fontFamily: 'Serif')),
@@ -27,11 +27,11 @@ class HomePage extends StatelessWidget {
                   Navigator.pushNamed(context, '/intro');
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green, // Background color
+                  primary: Color(0xFF73937E), // Background color
                 ),
                 child: const Text('Get started')),
             ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.green),
+                style: ElevatedButton.styleFrom(primary: Color(0xFF73937E)),
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
                 },

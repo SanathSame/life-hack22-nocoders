@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:no_coders/leaderboard.dart';
+import 'package:no_coders/scan_page.dart';
+import 'package:no_coders/profile.dart';
 
 class BasicBottomNavBar extends StatefulWidget {
   const BasicBottomNavBar({Key? key}) : super(key: key);
@@ -8,18 +11,24 @@ class BasicBottomNavBar extends StatefulWidget {
 }
 
 class _BasicBottomNavBarState extends State<BasicBottomNavBar> {
-  static int _selectedIndex = 2;
+  static int _selectedIndex = 1;
 
-  static final List<String> _pages = <String>[
-    '/leaderboard',
-    '/scan',
-    '/profile'
+  static final List<Widget> _pages = <Widget>[
+    LeaderBoard(),
+    ScanPage(),
+    ProfileScreen()
   ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      Navigator.pushNamed(context, _pages[index]);
+      Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+              pageBuilder: ((context, animation, secondaryAnimation) =>
+                  _pages[index]),
+              transitionDuration: Duration.zero,
+              reverseTransitionDuration: Duration.zero));
     });
   }
 

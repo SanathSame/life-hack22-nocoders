@@ -32,7 +32,7 @@
 //                   image: DecorationImage(
 //                     fit: BoxFit.contain,
 //                     image:
-//                         AssetImage("lib/assets/images/evolve_transparent.png"),
+//                         AssetImage("assets/images/evolve_transparent.png"),
 //                   ),
 //                 ),
 //               ),
@@ -186,7 +186,7 @@
 //                                       image: DecorationImage(
 //                                         fit: BoxFit.cover,
 //                                         image: AssetImage(
-//                                             "lib/assets/icons/google.png"),
+//                                             "assets/icons/google.png"),
 //                                       ),
 //                                     ),
 //                                   ),
@@ -213,7 +213,7 @@
 //                                       image: DecorationImage(
 //                                         fit: BoxFit.cover,
 //                                         image: AssetImage(
-//                                             "lib/assets/icons/facebook.png"),
+//                                             "assets/icons/facebook.png"),
 //                                       ),
 //                                     ),
 //                                   ),
@@ -238,7 +238,7 @@
 //                                     image: DecorationImage(
 //                                       fit: BoxFit.cover,
 //                                       image:
-//                                           AssetImage("lib/assets/icons/apple.png"),
+//                                           AssetImage("assets/icons/apple.png"),
 //                                     ),
 //                                   ),
 //                                 ),

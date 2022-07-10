@@ -4,21 +4,8 @@ import "package:flutter_feather_icons/flutter_feather_icons.dart";
 import 'package:get/get.dart';
 import 'package:no_coders/scan_page.dart';
 import 'package:no_coders/text_input_box.dart';
-
 import 'AuthController.dart';
 import 'constants/app_colours.dart';
-import 'package:evolve/constants/colour_scheme.dart';
-import 'package:evolve/constants/dimensions.dart';
-import 'package:evolve/controller/auth_controller.dart';
-import 'package:evolve/pages/onboarding/views/reset_password.dart';
-import 'package:evolve/pages/onboarding/views/signup.dart';
-import 'package:evolve/widgets/textinputbox.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import "package:flutter_feather_icons/flutter_feather_icons.dart";
-import 'package:get/get.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -44,33 +31,30 @@ class _LoginState extends State<Login> {
         resizeToAvoidBottomInset: true,
         body: SingleChildScrollView(
           child: Column(
-            //shrinkWrap: true,
-            //reverse: true,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 32.0),
+                padding: const EdgeInsets.only(top: 32.0, left: 20, right: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(
-                      height: 10, //10
+                      height: 10,
                     ),
-                    // A new you begins here
-                    const Center(
-                      child: Text(
-                        "Sign in",
-                        style: TextStyle(
-                            color: Colors.green,
-                            fontSize: 48,
-                            fontFamily: 'Nexa'),
-                      ),
+
+                    Text(
+                      "Sign in",
+                      style: TextStyle(
+                          color: Color(0xFF73937E),
+                          fontSize: 48,
+                          fontFamily: 'Nexa'),
                     ),
+
                     const SizedBox(
                       height: 20,
                     ),
-                    // Email TextInputBox
+
                     TextInputBox(
-                      height: 40, //40
+                      height: 40,
                       width: width,
                       hint: "Email Address",
                       icon: FeatherIcons.mail,
@@ -82,18 +66,6 @@ class _LoginState extends State<Login> {
                       height: 15, //15
                     ),
 
-                    SizedBox(
-                      height: Dimensions.length20, //100
-                    ),
-                    // Email TextInputBox
-                    TextInputBox(
-                      height: Dimensions.length40, //40
-                      width: Dimensions.screenWidth,
-                      hint: "Email Address",
-                      icon: FeatherIcons.mail,
-                      controller: emailController,
-                      function: () {},
-                    ),
                     // Password TextInputBox
                     TextInputBox(
                         height: 40, //40
@@ -116,7 +88,7 @@ class _LoginState extends State<Login> {
                         // );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.green,
+                        primary: Color(0xFF73937E),
                       ),
                       child: const Text("Login",
                           textAlign: TextAlign.center,
@@ -125,20 +97,20 @@ class _LoginState extends State<Login> {
                               fontWeight: FontWeight.bold)),
                     ),
                     const SizedBox(
-                      height: 15, //15
+                      height: 15,
                     ),
 
                     // Or sign in with
                     Container(
                       margin: const EdgeInsets.only(
-                        left: 60, //60
-                        right: 60, //60
+                        left: 60,
+                        right: 60,
                       ),
                       child: Row(
                         children: [
                           const Expanded(
                             child: Divider(
-                              color: Colors.green,
+                              color: Color(0xFF73937E),
                               thickness: 1,
                             ),
                           ),
@@ -154,7 +126,7 @@ class _LoginState extends State<Login> {
                           ),
                           const Expanded(
                             child: Divider(
-                              color: Colors.green,
+                              color: Color(0xFF73937E),
                               thickness: 1,
                             ),
                           ),
@@ -198,8 +170,8 @@ class _LoginState extends State<Login> {
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: AssetImage(
-                                        "lib/assets/icons/google.jpg"),
+                                    image:
+                                        AssetImage("assets/icons/google.jpg"),
                                   ),
                                 ),
                               ),

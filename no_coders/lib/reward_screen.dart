@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:no_coders/scan_page.dart';
 
 class RewardScreen extends StatelessWidget {
   const RewardScreen({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class RewardScreen extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           )),
                       Image.asset(
-                        "lib/assets/coin.png",
+                        "assets/coin.png",
                         height: 20,
                       )
                     ],
@@ -120,7 +121,9 @@ class LongGreenButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (() {}),
+      onTap: (() {
+        Get.to(() => ScanPage());
+      }),
       child: Padding(
         padding: const EdgeInsets.all(60.0),
         child: Container(

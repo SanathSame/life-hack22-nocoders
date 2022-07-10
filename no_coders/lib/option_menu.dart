@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:no_coders/controllers/options_controller.dart';
+import 'package:no_coders/result_page.dart';
 
 class OptionsMenu extends StatefulWidget {
   const OptionsMenu({Key? key}) : super(key: key);
@@ -12,12 +13,6 @@ class OptionsMenu extends StatefulWidget {
 }
 
 class _OptionsMenuState extends State<OptionsMenu> {
-  @override
-  void initState() {
-    Get.put(OptionsController());
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -166,7 +161,9 @@ class _LongGreenButtonState extends State<LongGreenButton> {
     return GetBuilder<OptionsController>(
       builder: (optionsCon) => GestureDetector(
         onTap: (() {
-          if (optionsCon.currentSelection.isNotEmpty) {}
+          if (optionsCon.currentSelection.isNotEmpty) {
+            Get.to(() => ResultPage());
+          }
         }),
         child: Padding(
           padding: const EdgeInsets.all(60.0),

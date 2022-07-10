@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:no_coders/constants/constants.dart';
-import 'package:no_coders/main_screen.dart';
+import 'package:no_coders/scan_page.dart';
 
 class ImageController extends GetxController {
   String model = ssd;

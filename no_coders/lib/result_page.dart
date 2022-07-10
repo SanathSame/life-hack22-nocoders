@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:no_coders/image_controller.dart';
+import 'package:no_coders/screen_three.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:no_coders/extensions/extensions.dart';
@@ -102,7 +103,9 @@ class _ResultPageState extends State<ResultPage> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(bottom: 30),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => ScreenOne());
+            },
             style: ElevatedButton.styleFrom(
               primary: Color(0xFF73937E),
               shape: RoundedRectangleBorder(

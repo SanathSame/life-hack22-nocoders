@@ -41,7 +41,7 @@ class _ScanPageState extends State<ScanPage> {
             title: Text("Recyclops",
                 style: TextStyle(
                     color: Color(0xff454955),
-                    fontSize: 20,
+                    fontSize: 25,
                     fontFamily: "Open Sans",
                     fontWeight: FontWeight.bold)),
             elevation: 0,

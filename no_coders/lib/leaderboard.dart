@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:no_coders/nav_bar.dart';
 
+import 'models/score_model.dart';
+
 class LeaderBoard extends StatelessWidget {
   const LeaderBoard({Key? key}) : super(key: key);
 
@@ -46,11 +48,11 @@ class LeaderBoard extends StatelessWidget {
           ),
           body: ListView.builder(
               physics: const BouncingScrollPhysics(),
-              itemCount: 5,
+              itemCount: leaderBoard.length,
               itemBuilder: ((context, index) => LeaderboardTile(
-                    image: "",
-                    name: "Tan Yu Qi",
-                    score: 600,
+                    image: leaderBoard[index].image,
+                    name: leaderBoard[index].name,
+                    score: leaderBoard[index].score,
                     rank: index + 1,
                   ))),
           bottomNavigationBar: BasicBottomNavBar()),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:no_coders/home_page.dart';
 import 'package:no_coders/dependencies.dart' as dependencies;
+import 'package:no_coders/reward_screen.dart';
 import 'package:no_coders/scan_page.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:no_coders/leaderboard.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const RewardScreen(),
       routes: {
         '/intro': (context) => const IntroPage(),
         '/login': (context) => const Login(),

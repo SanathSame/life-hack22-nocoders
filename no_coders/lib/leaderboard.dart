@@ -37,7 +37,10 @@ class LeaderBoard extends StatelessWidget {
                         children: [
                           Icon(Icons.diamond_rounded),
                           Icon(Icons.person_outline_rounded),
-                          Icon(Icons.money)
+                          Image.asset(
+                            "assets/coin.png",
+                            height: 20,
+                          )
                         ],
                       )
                     ]),

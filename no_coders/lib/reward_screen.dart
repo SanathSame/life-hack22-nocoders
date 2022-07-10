@@ -11,6 +11,7 @@ class RewardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Color(0xff454955),
@@ -23,8 +24,9 @@ class RewardScreen extends StatelessWidget {
             )
           ],
         ),
-        body: Column(children: [
-          SizedBox(
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Image.asset(
+            "assets/earth.png",
             height: 200,
           ),
           Container(

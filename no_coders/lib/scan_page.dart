@@ -36,6 +36,26 @@ class _ScanPageState extends State<ScanPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text("Recyclops",
+                style: TextStyle(
+                    color: Color(0xff454955),
+                    fontSize: 20,
+                    fontFamily: "Open Sans",
+                    fontWeight: FontWeight.bold)),
+            elevation: 0,
+            backgroundColor: Colors.white,
+            leading: GestureDetector(
+                onTap: () => Get.back(),
+                child: Icon(Icons.arrow_back_ios, color: Color(0xff454955))),
+            actions: [
+              Icon(Icons.help),
+              SizedBox(
+                width: 15,
+              )
+            ],
+          ),
           backgroundColor: Color(0xFF454955),
           body: GetBuilder<ImageController>(builder: (imageCon) {
             return imageCon.isLoading

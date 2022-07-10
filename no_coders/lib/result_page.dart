@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:no_coders/controllers/options_controller.dart';
 import 'package:no_coders/image_controller.dart';
 import 'package:no_coders/screen_three.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -104,6 +105,8 @@ class _ResultPageState extends State<ResultPage> {
           padding: const EdgeInsets.only(bottom: 30),
           child: ElevatedButton(
             onPressed: () {
+              OptionsController optionsCon = Get.find<OptionsController>();
+              optionsCon.getDescription();
               Get.to(() => ScreenOne());
             },
             style: ElevatedButton.styleFrom(

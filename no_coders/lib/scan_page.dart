@@ -65,7 +65,7 @@ class _ScanPageState extends State<ScanPage> {
                             onPressed: () {
                               selectFromImagePicker(
                                   source: ImageSource.gallery);
-                              optionCon.changeSelection("");
+                              optionCon.resetSelection();
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF73937E),
@@ -96,7 +96,7 @@ class _ScanPageState extends State<ScanPage> {
                           ElevatedButton(
                             onPressed: () {
                               selectFromImagePicker(source: ImageSource.camera);
-                              optionCon.changeSelection("");
+                              optionCon.resetSelection();
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF73937E),

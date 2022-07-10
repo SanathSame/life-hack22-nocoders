@@ -54,7 +54,7 @@ class _IntroPageState extends State<IntroPage> {
                   count: 3,
                   effect: const ExpandingDotsEffect(
                       dotColor: AppColours.greyBackgroundColor,
-                      activeDotColor: AppColours.componentColour,
+                      activeDotColor: Color(0xff73937e),
                       dotHeight: 10,
                       dotWidth: 10,
                       expansionFactor: 2),
@@ -71,7 +71,7 @@ class _IntroPageState extends State<IntroPage> {
                     onTap: () => Get.to(() => ScanPage()),
                     child: const Text(
                       "Skip",
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
                     )),
               ),
             )
@@ -84,37 +84,37 @@ class IntroCardOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SizedBox(
-        height: 400,
-        child: Column(
-          children: [
-            SizedBox(
-                height: 150, child: Image.asset('assets/people_recycle.png')),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Recycling at your fingertips",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+              height: 150, child: Image.asset('assets/people_recycle.png')),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Know your recyclables",
+            style: TextStyle(
+                color: Color(0xff454955),
+                fontSize: 18,
                 fontFamily: "Open Sans",
-                letterSpacing: 0.5,
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            SizedBox(
-              width: 280,
-              child: Text(
-                  "With Evolve's simple and specially designed logging flow, logging routines accurately becomes less of a chore.",
-                  style: TextStyle(color: Colors.black, fontSize: 12),
-                  textAlign: TextAlign.center),
-            ),
-          ],
-        ),
+                fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+            width: 280,
+            child: Text(
+                "Check whether your item is recyclable in one scan. Our proprietary technology will be able to identify your items with accuracy and precision.",
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                  fontFamily: "Open Sans",
+                ),
+                textAlign: TextAlign.center),
+          ),
+        ],
       ),
     );
   }
@@ -124,34 +124,47 @@ class IntroCardTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SizedBox(
-          height: 400,
-          child: SafeArea(
-            child: Column(
-              children: [
-                SizedBox(
+      child: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ClipRRect(
+              child: Align(
+                alignment: Alignment.topCenter,
+                heightFactor: 0.8,
+                child: SizedBox(
                     height: 220,
                     child: Image.asset('assets/recycling_logo.jpg')),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  "View your progress",
-                  style: TextStyle(color: Colors.black, fontSize: 12),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const SizedBox(
-                  width: 280,
-                  child: Text(
-                      "Detailed analytics and visual displays lets you view and understand your progress at a glance.",
-                      style: TextStyle(color: Colors.black, fontSize: 12),
-                      textAlign: TextAlign.center),
-                ),
-              ],
+              ),
             ),
-          )),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              "Showcase your environmental awareness",
+              style: TextStyle(
+                  color: Color(0xff454955),
+                  fontSize: 18,
+                  fontFamily: "Open Sans",
+                  fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const SizedBox(
+              width: 280,
+              child: Text(
+                  "Compete with your peers at our leaderboard to win attractive prizes and be rewarded for doing your part to conserve the environment.",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontFamily: "Open Sans",
+                  ),
+                  textAlign: TextAlign.center),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -160,44 +173,54 @@ class IntroCardThree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SizedBox(
-          height: 450,
-          child: Column(children: [
-            SizedBox(
-                height: 150, child: Image.asset('assets/recycling_logo.jpg')),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "Get personalised insights",
-              style: TextStyle(color: Colors.black, fontSize: 12),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const SizedBox(
-              width: 150,
-              child: Text(
-                  "Evolve's algorithm makes predictions about your overall well-being based on your lifestyle patterns and provides you with personalised prompts.",
-                  style: TextStyle(color: Colors.black, fontSize: 12),
-                  textAlign: TextAlign.center),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/scan');
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color(0xFF73937E),
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        ClipRRect(
+          child: Align(
+            alignment: Alignment.topCenter,
+            heightFactor: 0.8,
+            child: SizedBox(
+                height: 220, child: Image.asset('assets/recycling_logo.jpg')),
+          ),
+        ),
+        const Text(
+          "Ever-improving technology",
+          style: TextStyle(
+              color: Color(0xff454955),
+              fontSize: 18,
+              fontFamily: "Open Sans",
+              fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        const SizedBox(
+          width: 300,
+          child: Text(
+              "Our system will become better with each of your scan and our machine learning algorithmn will be able to detect your items faster with increased precision.",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 12,
+                fontFamily: "Open Sans",
               ),
-              child: const Text(
-                "Scan!",
-                style: TextStyle(color: Colors.black, fontSize: 12),
-              ),
-            )
-          ])),
+              textAlign: TextAlign.center),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/scan');
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Color(0xFF73937E),
+          ),
+          child: const Text(
+            "Scan!",
+            style: TextStyle(
+                color: Colors.white, fontSize: 12, fontFamily: "Open Sans"),
+          ),
+        )
+      ]),
     );
   }
 }
